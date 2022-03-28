@@ -1,19 +1,27 @@
 
 function newItem(){
+//javascript => jQuery
 
-//javascript
 //1. Adding a new item to the list of items:
-   let li = document.createElement("li");
-   let inputValue = document.getElementById("input").value;
-   let text = document.createTextNode(inputValue);
-   li.appendChild(text);
+   // let li = document.createElement("li");
+   let li = $('<li></li>'');
+   // let inputValue = document.getElementById("input").value;
+   let inputValue = $('#input').val();
+   // let text = document.createTextNode(inputValue);
+   //no jQuery equivalentg for .createTextNode()
+   // li.appendChild(text);
+   li.append(inputValue);
 
    if (inputValue === '') {
      alert("You must write something!");
    } else {
-     let list = document.querySelector('#list');
-     list.appendChild(li);
-   }
+     // let list = document.querySelector('#list');
+     // list.appendChild(li);
+     let list = $('#list');
+     list.append(li);
+     //clear input content
+     $('#input').val('');
+   };
 
  //2. Crossing out an item from the list of items:
    function crossOut() {
